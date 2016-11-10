@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSSample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+   $(function() {
+      var params = {
+         // Specify your subscription key
+         'subscription-key': 'e77d0d528a4840468009cc520dc92a54',
+         // Specify values for optional parameters, as needed
+         visualFeatures: "All",
+      };
+
+      $.ajax({
+         url: 'https://api.projectoxford.ai/vision/v1.0/ocr?' + $.param(params),
+         type: 'POST',
+         contentType: 'application/json',
+         data: '{ "Url": "http://shockinglyhealthy.com/wp-content/uploads/2013/07/Shockingly-Healthy-Oatmeal-Chocolate-Chip-CookiesH.jpg" }'
+      })
+      .done(function(data) {
+         console.log(data);	
+		processData(data);
+		 alert("success");
+      })
+      .fail(function() {
+         alert("error");
+      });	 
+   });
+   
+   function processData(data){
+	var phrases = "";
+	data.regions.forEach(function(region, rIndex){
+		phrases += "Region " + parseInt(rIndex+1) + " out of " + data.regions.length + ".";
+		region.lines.forEach(function(line, lIndex){
+			phrases += "Line " + parseInt(lIndex+1) + " out of " + region.lines.length + ".";
+			line.words.forEach(function(word){
+				phrases += " " + word.text;
+			})
+			phrases += ".";
+		})
+	})
+	generateUtterance(phrases)
+   }
+   
+   function generateUtterance(phrases){
+		sentences = phrases.split(".")
+		for (i = 0; i < sentences.length; i++) {
+		  sentence = sentences[i]
+		  audio = new SpeechSynthesisUtterance(sentence)
+		  window.speechSynthesis.speak(audio)
+		}
+   }
+    </script>
+	<img src='http://shockinglyhealthy.com/wp-content/uploads/2013/07/Shockingly-Healthy-Oatmeal-Chocolate-Chip-CookiesH.jpg' style="width:50%;"/>
+</body>
+</html>
