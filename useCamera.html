@@ -3,9 +3,11 @@
 <body>
 <video id="video" width="640" height="480" autoplay></video>
 <button id="snap">Snap Photo</button>
+<button id="send">SSend Photo</button>
 <canvas id="canvas" width="640" height="480"></canvas>
 <script>
 	
+
 	// Grab elements, create settings, etc.
 	var video = document.getElementById('video');
 	var canvas = document.getElementById('canvas');
@@ -25,6 +27,11 @@
 	document.getElementById("snap").addEventListener("click", function() {
 		context.drawImage(video, 0, 0, 640, 480);
 	});
+	document.getElementById("send").addEventListener("click", function() {
+		var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+		return image;		
+	});	
 </script>
 
 
