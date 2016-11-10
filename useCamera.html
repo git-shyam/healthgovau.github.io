@@ -8,6 +8,9 @@
 	
 	// Grab elements, create settings, etc.
 	var video = document.getElementById('video');
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+
 
 	// Get access to the camera!
 	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
