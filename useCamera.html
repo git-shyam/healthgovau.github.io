@@ -19,6 +19,18 @@
 		// Get access to the camera!
 		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		    // Not adding `{ audio: true }` since we only want video now
+			
+			navigator.mediaDevices.enumerateDevices()
+			  .then(function(devices) {
+			    devices.forEach(function(device) {
+			      console.log(device);
+			    });
+			  })
+			  .catch(function(err) {
+			    console.log(err.name + ": " + error.message);
+			  });
+
+
 		    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
 		        video.src = window.URL.createObjectURL(stream);
 		        //video.play();
