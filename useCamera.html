@@ -7,7 +7,7 @@
 <button id="camera">Open Camera</button>
 <button id="snap">Snap Photo</button>
 <button id="send">SSend Photo</button>
-<select id="cameras"></select>
+<select id="cameras"><option></option></select>
 <canvas id="canvas" width="640" height="480"></canvas>
 <script>
 	
@@ -39,6 +39,7 @@
 		});	
 
 	$('#cameras').change(function(){
+		video.src = null;
 		console.log($(this).find(":selected").val());
 		var constraints = { deviceId: { exact: $(this).find(":selected").val() } };
     	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
