@@ -39,7 +39,9 @@
 		});	
 
 	$('#cameras').change(function(){
-		video.stop();
+		var track = stream.getTracks()[0];  // if only one media track
+// ...
+track.stop();
 		console.log($(this).find(":selected").val());
 		var constraints = { deviceId: { exact: $(this).find(":selected").val() } };
     	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
