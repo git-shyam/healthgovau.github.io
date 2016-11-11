@@ -2,6 +2,8 @@
 // Variables
 // --------------------------------------------------
 
+// Paths
+@img-path:               "../../app/img";
 
 //== Colors
 //
@@ -15,8 +17,11 @@
 @gray-light:             #b4bcc2;   // #999
 @gray-lighter:           #ecf0f1; // #eee
 @green-dark:  			 #10672a;
+@blue-light:             #8df8ff;
+@blue-dark:              #0089ff;
 
 @brand-primary:         #2C3E50;
+@brand-primary:         #000;
 @brand-success:         #18BC9C;
 @brand-info:            #3498DB;
 @brand-warning:         #F39C12;
@@ -50,7 +55,7 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          15px;
+@font-size-base:          17px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
@@ -359,7 +364,7 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    60px;
+@navbar-height:                    66px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
@@ -367,7 +372,7 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #fff;
-@navbar-default-bg:                @green-dark;
+@navbar-default-bg:                @blue-dark;
 @navbar-default-border:            transparent;
 
 // Navbar links
@@ -488,7 +493,7 @@
 
 @jumbotron-padding:              30px;
 @jumbotron-color:                inherit;
-@jumbotron-bg:                   @gray-lighter;
+@jumbotron-bg:                   @white;
 @jumbotron-heading-color:        inherit;
 @jumbotron-font-size:            ceil((@font-size-base * 1.5));
 @jumbotron-heading-font-size:    ceil((@font-size-base * 4.5));
