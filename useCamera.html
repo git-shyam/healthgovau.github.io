@@ -16,6 +16,7 @@
 	var video = document.getElementById('video');
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
+	var currentStream;
 
 
 	document.getElementById("camera").addEventListener("click", function() {
@@ -39,9 +40,13 @@
 		});	
 
 	$('#cameras').change(function(){
+		if(currentStream){
+			currentStream.getTracks()[0].stop();
+		}
 		console.log($(this).find(":selected").val());
 		var constraints = { deviceId: { exact: $(this).find(":selected").val() } };
     	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+    		currentStream = stream;
     		var track = stream.getTracks()[0];  // if only one media track
 			track.stop();
         	video.src = window.URL.createObjectURL(stream);		
