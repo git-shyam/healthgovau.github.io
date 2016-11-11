@@ -23,8 +23,7 @@
 		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		    // Not adding `{ audio: true }` since we only want video now
 			
-			navigator.mediaDevices.enumerateDevices()
-			  .then(function(devices) {
+			navigator.mediaDevices.enumerateDevices().then(function(devices){
 			    devices.forEach(function(device) {
 			      console.log(device);
 			      if(device.kind == "videoinput"){
@@ -36,7 +35,7 @@
 			    console.log(err.name + ": " + error.message);
 			  });
 
-		    });
+		    };
 		}	
 	});
 
