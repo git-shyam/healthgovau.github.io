@@ -44,7 +44,7 @@
     	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
         	video.src = window.URL.createObjectURL(stream);		
 		});
-    }
+    });
 
 	    //navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode:"environment" } }).then(function(stream) {
         //video.src = window.URL.createObjectURL(stream);
