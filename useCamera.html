@@ -39,7 +39,7 @@
 		});	
 
 	$('#cameras').change(function(){
-		video.src = null;
+		video.stop();
 		console.log($(this).find(":selected").val());
 		var constraints = { deviceId: { exact: $(this).find(":selected").val() } };
     	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
@@ -47,10 +47,6 @@
 		});
     });
 
-	    //navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode:"environment" } }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-		        //video.play();			
-	//})
 	// Trigger photo take
 	document.getElementById("snap").addEventListener("click", function() {
 		context.drawImage(video, 0, 0, 640, 480);
