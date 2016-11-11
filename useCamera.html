@@ -27,24 +27,31 @@
 			  .then(function(devices) {
 			    devices.forEach(function(device) {
 			      console.log(device);
+			      if(device.kind == "videoinput"){
 		      		$("#cameras").append('<option value="' + device.deviceId + '">' + device.label + '</option>');
+		      		}
 			    });
 			  })
 			  .catch(function(err) {
 			    console.log(err.name + ": " + error.message);
 			  });
 
-
-		    navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode:"environment" } }).then(function(stream) {
-		        video.src = window.URL.createObjectURL(stream);
-		        //video.play();
 		    });
 		}	
 	});
 
-	$('#cameras').change(function(item){
-		console.log(item);
-	})
+	$('#cameras').change(function(){
+		console.log($(this).find(":selected").val());
+		var constraints = { deviceId: { exact: $(this).find(":selected").val() } };
+    	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+        	video.src = window.URL.createObjectURL(stream);		
+		});
+    }
+
+	    //navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode:"environment" } }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+		        //video.play();			
+	//})
 	// Trigger photo take
 	document.getElementById("snap").addEventListener("click", function() {
 		context.drawImage(video, 0, 0, 640, 480);
