@@ -56,6 +56,14 @@
 		context.drawImage(video, 0, 0, 640, 480);
 	});
 
+	function stopCurrentStream(){
+		var constraints = { deviceId: { exact: $('#cameras').find(":selected").val() } };
+    	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+    		stream.getTracks()[0].stop();	
+		});
+
+	}
+
     makeblob = function (dataURL) {
     	console.log("image size is " + dataURL.substr(22));
         var BASE64_MARKER = ';base64,';
@@ -103,7 +111,7 @@
              processData: false
 	      })
 	      .done(function(data) {
-	         console.log(data);	
+	        stopCurrentStream();
 			processData(data);
 			 alert("success");
 	      })
