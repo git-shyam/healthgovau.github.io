@@ -16,12 +16,24 @@
 
 
 	document.getElementById("camera").addEventListener("click", function() {
+		var hdConstraints = {
+                audio: false,
+                video: {
+                    mandatory: {
+                            maxWidth: tw,
+                            maxHeight: th
+                        },
+                    optional: [{
+                        sourceId: videoSource
+                    }]
+                }
+            };
 		// Get access to the camera!
 		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		    // Not adding `{ audio: true }` since we only want video now
-		    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+		    navigator.mediaDevices.getUserMedia(hdConstraints).then(function(stream) {
 		        video.src = window.URL.createObjectURL(stream);
-		        video.play();
+		        //video.play();
 		    });
 		}	
 	});
