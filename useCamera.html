@@ -2,6 +2,7 @@
 <head></head>
 <body>
 <video id="video" width="640" height="480" autoplay></video>
+<button id="camera">Open Camera</button>
 <button id="snap">Snap Photo</button>
 <button id="send">SSend Photo</button>
 <canvas id="canvas" width="640" height="480"></canvas>
@@ -14,15 +15,16 @@
 	var context = canvas.getContext('2d');
 
 
-	// Get access to the camera!
-	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-	    // Not adding `{ audio: true }` since we only want video now
-	    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-	        video.src = window.URL.createObjectURL(stream);
-	        video.play();
-	    });
-	}
-
+	document.getElementById("camera").addEventListener("click", function() {
+		// Get access to the camera!
+		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		    // Not adding `{ audio: true }` since we only want video now
+		    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+		        video.src = window.URL.createObjectURL(stream);
+		        video.play();
+		    });
+		}	
+	});
 	// Trigger photo take
 	document.getElementById("snap").addEventListener("click", function() {
 		context.drawImage(video, 0, 0, 640, 480);
