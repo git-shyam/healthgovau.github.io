@@ -5466,7 +5466,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn
     position: relative;
 
     min-height: 66px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
 
     border: 1px solid transparent;
 }
@@ -8854,5 +8854,11 @@ body
     display: block;
 
     color: #0166bd;
+}
+.page-header
+{
+    margin-top: 0;
+
+    background: #ecf0f1;
 }
 /*# sourceMappingURL=helper-marketplace.css.map */
