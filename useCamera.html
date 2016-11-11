@@ -83,15 +83,21 @@
 		image.src = canvas.toDataURL("image/png");
 		console.log(image);
 
-	      var params = {
+	      /*var params = {
 	         // Specify your subscription key
 	         'subscription-key': 'e77d0d528a4840468009cc520dc92a54',
 	         // Specify values for optional parameters, as needed
 	         visualFeatures: "All",
-	      };
+	      };*/
+
 
 	      $.ajax({
-	         url: 'https://api.projectoxford.ai/vision/v1.0/ocr?' + $.param(params),
+	         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
+            beforeSend: function (xhrObj) {
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
+            },	         
 	         type: 'POST',
         	 data: makeblob(image.src),
              processData: false
