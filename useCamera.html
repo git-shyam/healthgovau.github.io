@@ -57,6 +57,7 @@
 	});
 
     makeblob = function (dataURL) {
+    	console.log("image size is " + dataURL.substr(22));
         var BASE64_MARKER = ';base64,';
         if (dataURL.indexOf(BASE64_MARKER) == -1) {
             var parts = dataURL.split(',');
@@ -81,7 +82,6 @@
 	document.getElementById("send").addEventListener("click", function() {
 		var image = new Image();
 		image.src = canvas.toDataURL("image/png");
-		console.log(image);
 
 	      /*var params = {
 	         // Specify your subscription key
