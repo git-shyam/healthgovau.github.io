@@ -3,6 +3,7 @@
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html
 {
@@ -1423,7 +1424,7 @@ html
 }
 body
 {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.42857143;
 
@@ -1443,14 +1444,14 @@ a
 {
     text-decoration: none;
 
-    color: gray base;
+    color: #0166bd;
 }
 a:hover,
 a:focus
 {
     text-decoration: underline;
 
-    color: gray base;
+    color: #fff;
 }
 a:focus
 {
@@ -1553,7 +1554,7 @@ h6,
 .h5,
 .h6
 {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.1;
 
@@ -1587,7 +1588,7 @@ h6 .small,
     font-weight: normal;
     line-height: 1;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 h1,
 .h1,
@@ -1734,7 +1735,7 @@ mark,
 }
 .text-muted
 {
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 .text-primary
 {
@@ -1909,7 +1910,7 @@ abbr[data-original-title]
 {
     cursor: help;
 
-    border-bottom: 1px dotted #b4bcc2;
+    border-bottom: 1px dotted #e0e0e0;
 }
 .initialism
 {
@@ -1941,7 +1942,7 @@ blockquote .small
 
     display: block;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 blockquote footer:before,
 blockquote small:before,
@@ -3051,7 +3052,7 @@ caption
 
     text-align: left;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 th
 {
@@ -4457,7 +4458,7 @@ fieldset[disabled] .btn-danger.focus
 {
     font-weight: normal;
 
-    color: gray base;
+    color: #0166bd;
     border-radius: 0;
 }
 .btn-link,
@@ -4482,7 +4483,7 @@ fieldset[disabled] .btn-link
 {
     text-decoration: underline;
 
-    color: gray base;
+    color: #fff;
     background-color: transparent;
 }
 .btn-link[disabled]:hover,
@@ -4492,7 +4493,7 @@ fieldset[disabled] .btn-link:focus
 {
     text-decoration: none;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 .btn-lg,
 .btn-group-lg > .btn
@@ -4689,7 +4690,7 @@ tbody.collapse.in
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus
 {
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus
@@ -4731,7 +4732,7 @@ tbody.collapse.in
 
     white-space: nowrap;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 .dropdown-backdrop
 {
@@ -5227,11 +5228,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 {
     text-decoration: none;
 
-    background-color: #ecf0f1;
+    background-color: #000;
 }
 .nav > li.disabled > a
 {
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus
@@ -5239,15 +5240,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn
     cursor: not-allowed;
     text-decoration: none;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
     background-color: transparent;
 }
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus
 {
-    border-color: gray base;
-    background-color: #ecf0f1;
+    border-color: #0166bd;
+    background-color: #000;
 }
 .nav .nav-divider
 {
@@ -5909,38 +5910,38 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 .navbar-default
 {
     border-color: transparent;
-    background-color: #0166bd;
+    background-color: #fff;
 }
 .navbar-default .navbar-brand
 {
-    color: #fff;
+    color: #000;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus
 {
-    color: #18bc9c;
+    color: #fff;
     background-color: transparent;
 }
 .navbar-default .navbar-text
 {
-    color: #fff;
+    color: #000;
 }
 .navbar-default .navbar-nav > li > a
 {
-    color: #fff;
+    color: #000;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus
 {
-    color: #18bc9c;
-    background-color: transparent;
+    color: #fff;
+    background-color: #000;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus
 {
-    color: #fff;
-    background-color: #014b8a;
+    color: #000;
+    background-color: #e6e6e6;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -5951,12 +5952,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 }
 .navbar-default .navbar-toggle
 {
-    border-color: #014b8a;
+    border-color: #e6e6e6;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus
 {
-    background-color: #014b8a;
+    background-color: #e6e6e6;
 }
 .navbar-default .navbar-toggle .icon-bar
 {
@@ -5971,27 +5972,27 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus
 {
-    color: #fff;
-    background-color: #014b8a;
+    color: #000;
+    background-color: #e6e6e6;
 }
 @media (max-width: 767px)
 {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a
     {
-        color: #fff;
+        color: #000;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus
     {
-        color: #18bc9c;
-        background-color: transparent;
+        color: #fff;
+        background-color: #000;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus
     {
-        color: #fff;
-        background-color: #014b8a;
+        color: #000;
+        background-color: #e6e6e6;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -6003,20 +6004,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 }
 .navbar-default .navbar-link
 {
-    color: #fff;
+    color: #000;
 }
 .navbar-default .navbar-link:hover
 {
-    color: #18bc9c;
+    color: #fff;
 }
 .navbar-default .btn-link
 {
-    color: #fff;
+    color: #000;
 }
 .navbar-default .btn-link:hover,
 .navbar-default .btn-link:focus
 {
-    color: #18bc9c;
+    color: #fff;
 }
 .navbar-default .btn-link[disabled]:hover,
 fieldset[disabled] .navbar-default .btn-link:hover,
@@ -6585,7 +6586,7 @@ a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active
 {
-    border-color: gray base;
+    border-color: #0166bd;
 }
 .thumbnail .caption
 {
@@ -6935,7 +6936,7 @@ button.list-group-item
 {
     cursor: not-allowed;
 
-    color: #b4bcc2;
+    color: #e0e0e0;
     background-color: #ecf0f1;
 }
 .list-group-item.disabled .list-group-item-heading,
@@ -6948,7 +6949,7 @@ button.list-group-item
 .list-group-item.disabled:hover .list-group-item-text,
 .list-group-item.disabled:focus .list-group-item-text
 {
-    color: #b4bcc2;
+    color: #e0e0e0;
 }
 .list-group-item.active,
 .list-group-item.active:hover,
@@ -7808,7 +7809,7 @@ button.close
 }
 .tooltip
 {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: normal;
     font-style: normal;
@@ -7964,7 +7965,7 @@ button.close
 }
 .popover
 {
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 17px;
     font-weight: normal;
     font-style: normal;
@@ -8827,25 +8828,41 @@ button.close
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-/* Move down content because we have a fixed navbar that is 50px tall */
+/* Move down content because we have a fixed navbar that is 60px tall */
 body
 {
-    /*padding-top: 50px;*/
+    padding-top: 0;
     padding-bottom: 20px;
 }
-.jumbo-lead
+.jumbrotron .visible-xs.strapline
 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
-.jumbo-lead
+img
 {
-    margin-left: 20px;
+    max-width: 100%;
+}
+.navbar
+{
+    -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .06), 0 4px 5px 0 rgba(0, 0, 0, .06), 0 1px 10px 0 rgba(0, 0, 0, .08);
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .06), 0 4px 5px 0 rgba(0, 0, 0, .06), 0 1px 10px 0 rgba(0, 0, 0, .08);
 }
 .navbar-brand
 {
     padding-left: 95px;
 
-    background: url('../../app/img/logo-small.png') 20px center no-repeat;
+    background: url('../../app/img/logo-small-blue.png') 20px center no-repeat;
+}
+.navbar-default .navbar-toggle
+{
+    border-color: transparent;
+}
+.navbar-default .navbar-toggle .icon-bar
+{
+    width: 23px;
+    height: 4px;
+
+    background-color: #000;
 }
 .meta-age
 {
@@ -8855,10 +8872,42 @@ body
 
     color: #0166bd;
 }
-.page-header
+.content-header
 {
     margin-top: 0;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
 
+    border-bottom: 1px solid #e0e0e0;
     background: #ecf0f1;
+}
+.content-header h1
+{
+    margin-top: 30px;
+}
+.chat-bubble
+{
+    position: relative;
+
+    width: 120px;
+    height: 80px;
+
+    border-radius: 10px;
+    background: red;
+}
+.chat-bubble:before
+{
+    position: absolute;
+    top: 26px;
+    right: 100%;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+
+    border-top: 13px solid transparent;
+    border-right: 26px solid red;
+    border-bottom: 13px solid transparent;
 }
 /*# sourceMappingURL=helper-marketplace.css.map */

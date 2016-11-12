@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Helper Marketplace</title>
+    <title>Hack 4 Good</title>
     <!-- Bootstrap -->
     <link href="dist/css/helper-marketplace.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,19 +46,23 @@
         </div>
       </div>
     </div>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    
+    <div class="content-header jumbotron">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-xs-5 col-sm-4 col-md-4">
             <img src="./app/img/logo.png" alt="On hand logo" class="jumbo-logo">
           </div>
-          <div class="col-md-8">
-            <div class="jumbo-lead"><h1>On Hand</h1>
-              <p>Need a hand to do something?</p>
-              <p>A small task? A big issue? A helping hand is only a click away.</p>
-            </div>
+          <div class="col-xs-7 col-sm-8 col-md-8">
+              <h1>On Hand</h1>
+              <div class="hidden-xs">
+                <p>Need a hand to do something?</p>
+                <p>A small task? A big issue? A helping hand is only a click away.</p>
+              </div>
           </div>
+        </div>
+        <div class="visible-xs strapline">
+          <p>Have a small task? A big issue? A helping hand is only a click away.</p>
         </div>
       </div>
     </div>
@@ -72,16 +76,16 @@
             <li>All app-specific components live in <strong>/app</strong></li>
             <li>If hosted on GitHib pages, the index.html page needs to be at the root.</li>
           </ul>
-<pre><code>index.html
-app/
-├── img/
-├── less/
-├── js/
-dist/
-├── less/
-├── js/
-└── fonts/
-</code></pre>
+                    <pre><code>index.html
+                        app/
+                        ├── img/
+                        ├── less/
+                        ├── js/
+                        dist/
+                        ├── less/
+                        ├── js/
+                        └── fonts/
+          </code></pre>
         </div>
         <div class="col-md-7">
           <h2>Build system</h2>

@@ -1,24 +1,36 @@
 /* Import from Bootstrap */
 @import "./less/bootstrap.less";
 
-/* Move down content because we have a fixed navbar that is 50px tall */
+/* Move down content because we have a fixed navbar that is 60px tall */
 body {
-  /*padding-top: 50px;*/
+  padding-top: 0;
   padding-bottom: 20px;
 }
 
-.jumbo-lead {
-	margin-top: 30px;
-}
-.jumbo-lead {
-	margin-left: 20px;
+.jumbrotron .visible-xs.strapline {
+	margin-top: 20px;
 }
 
+// Images =====================================================================
+img {
+	max-width: 100%;
+}
 
 // Navbar =====================================================================
+.navbar {
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.06),0 4px 5px 0 rgba(0,0,0,0.06),0 1px 10px 0 rgba(0,0,0,0.08)
+}
 .navbar-brand {
-	background: url("@{img-path}/logo-small.png") 20px center no-repeat;
+	background: url("@{img-path}/logo-small-blue.png") 20px center no-repeat;
 	padding-left: 95px;
+}
+.navbar-default .navbar-toggle {
+	border-color: transparent;
+	.icon-bar {
+		background-color: #000;
+		width: 23px;
+    	height: 4px;
+	}
 }
 
 // Buttons ====================================================================
@@ -41,7 +53,35 @@ body {
 // Progress bars ==============================================================
 
 // Containers =================================================================
-.page-header {
+.content-header {
 	background: @gray-lighter;
 	margin-top: 0;
+	border-bottom: 1px solid @gray-light;
+	margin-bottom: 24px;
+    padding-bottom: 16px;
+	h1 {
+		margin-top: 30px;
+	}
+}
+
+// Chat =======================================================================
+.chat-bubble {
+   width: 120px;
+   height: 80px;
+   background: red;
+   position: relative;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
+   &:before {
+	   content:"";
+	   position: absolute;
+	   right: 100%;
+	   top: 26px;
+	   width: 0;
+	   height: 0;
+	   border-top: 13px solid transparent;
+	   border-right: 26px solid red;
+	   border-bottom: 13px solid transparent;
+	}
 }

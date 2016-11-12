@@ -2,8 +2,6 @@
 // Variables
 // --------------------------------------------------
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 // Paths
 @img-path:               "../../app/img";
 
@@ -17,7 +15,7 @@
 @gray-darker:            lighten(@gray-base, 13.5%); // #222
 @gray-dark:              #7b8a8b;   // #333
 @gray:                   #95a5a6; // #555
-@gray-light:             #e0e0e0;;   // #999
+@gray-light:             #b4bcc2;   // #999
 @gray-lighter:           #ecf0f1; // #eee
 @green-dark:  			 #10672a;
 @blue-light:             #8df8ff;
@@ -41,9 +39,9 @@
 @text-color:            @black;
 
 //** Global textual link color.
-@link-color:            @blue-dark;
+@link-color:            gray-base;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      @white;
+@link-hover-color:      @link-color;
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
@@ -52,7 +50,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -375,15 +373,15 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             @black;
-@navbar-default-bg:                @white;
+@navbar-default-color:             #fff;
+@navbar-default-bg:                @blue-dark;
 @navbar-default-border:            transparent;
 
 // Navbar links
-@navbar-default-link-color:                @black;
-@navbar-default-link-hover-color:          @white;
-@navbar-default-link-hover-bg:             @black;
-@navbar-default-link-active-color:         @black;
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          @brand-success;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 10%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
@@ -431,7 +429,7 @@
 
 //=== Shared nav styles
 @nav-link-padding:                          10px 15px;
-@nav-link-hover-bg:                         @black;
+@nav-link-hover-bg:                         @gray-lighter;
 
 @nav-disabled-link-color:                   @gray-light;
 @nav-disabled-link-hover-color:             @gray-light;
