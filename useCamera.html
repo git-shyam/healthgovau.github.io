@@ -140,11 +140,11 @@
    }
    
    function generateUtterance(phrases){
-		sentences = phrases.split(".")
+		sentences = phrases.split(".");
 		for (i = 0; i < sentences.length; i++) {
-		  sentence = sentences[i]
-		  audio = new SpeechSynthesisUtterance(sentence)
-		  window.speechSynthesis.speak(audio)
+		  sentence = sentences[i];
+		  audio = new SpeechSynthesisUtterance(sentence);
+		  window.speechSynthesis.speak(audio);
 		}
    }
 
