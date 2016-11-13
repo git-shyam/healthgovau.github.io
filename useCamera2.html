@@ -85,11 +85,24 @@
         return new Blob([uInt8Array], { type: contentType });
     }
 
-	function stopCurrentStream(){
-		var constraints = { deviceId: { exact: $('#cameras').find(":selected").val() } };
-    	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
-    		stream.getTracks()[0].stop();	
-		});
+	function stopCurrentStreams(){
+			navigator.mediaDevices.enumerateDevices().then(function(devices){
+			    devices.forEach(function(device) {
+			      console.log(device);
+			      if(device.kind == "videoinput"){
+		      		//$("#cameras").append('<option value="' + device.deviceId + '">' + device.label + '</option>');
+		      		//}
+      				var constraints = { deviceId: { device.deviceId } };
+    				navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+    					alert("Stopping stream did: " + device.deviceId);
+    					stream.getTracks()[0].stop();	
+					});
+
+			    };
+			  });
+			  .catch(function(err) {
+			    console.log(err.name + ": " + error.message);
+			  });
 
 	}
 
@@ -107,7 +120,7 @@
          processData: false
       })
       .done(function(data) {
-        stopCurrentStream();
+        //stopCurrentStream();
 		$('#loader').hide();
 		processData(data);
       })
@@ -153,6 +166,8 @@
 		         // Specify values for optional parameters, as needed
 		         visualFeatures: "All",
 		      };*/
+
+		      stopCurrentStreams();
 
 		      var reader  = new FileReader();
 		      var file = document.querySelector('input[type=file]').files[0];
