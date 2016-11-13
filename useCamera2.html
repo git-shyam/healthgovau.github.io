@@ -85,6 +85,14 @@
         return new Blob([uInt8Array], { type: contentType });
     }
 
+	function stopCurrentStream(){
+		var constraints = { deviceId: { exact: $('#cameras').find(":selected").val() } };
+    	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+    		stream.getTracks()[0].stop();	
+		});
+
+	}
+
 	function uploadImage(base64File){
 
       $.ajax({
@@ -99,7 +107,7 @@
          processData: false
       })
       .done(function(data) {
-        //stopCurrentStream();
+        stopCurrentStream();
 		$('#loader').hide();
 		processData(data);
       })
@@ -127,7 +135,7 @@
 		sentences = phrases.split(".");
 		for (i = 0; i < sentences.length; i++) {
 		  sentence = sentences[i];
-		  $('#messages').html("<p>" + $('#messages').html() + sentence + "</p>"); 
+		  //$('#messages').html("<p>" + $('#messages').html() + sentence + "</p>"); 
 		  audio = new SpeechSynthesisUtterance(sentence);
 		  window.speechSynthesis.speak(audio);
 		}
