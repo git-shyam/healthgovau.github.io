@@ -100,8 +100,8 @@
       })
       .done(function(data) {
         //stopCurrentStream();
+		$('loader').hide();
 		processData(data);
-		 alert("success");
       })
       .fail(function(error) {
          alert(error);
