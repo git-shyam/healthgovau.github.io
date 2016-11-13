@@ -5,14 +5,156 @@
 		<meta charset="utf-8">
 		<title>Media Capture for mobile devices</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 		<!--<link rel="stylesheet" href="reset.css" type="text/css"><link rel="stylesheet" href="media.css" type="text/css">
 		<script type="text/javascript" src="media.js"></script>-->
+<script>
+	
+	/*
+	// Grab elements, create settings, etc.
+	var video = document.getElementById('video');
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var currentStream;
+
+
+	document.getElementById("camera").addEventListener("click", function() {
+		// Get access to the camera!
+		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		    // Not adding `{ audio: true }` since we only want video now
+			
+			navigator.mediaDevices.enumerateDevices().then(function(devices){
+			    devices.forEach(function(device) {
+			      console.log(device);
+			      if(device.kind == "videoinput"){
+		      		$("#cameras").append('<option value="' + device.deviceId + '">' + device.label + '</option>');
+		      		}
+			    });
+			  })
+			  .catch(function(err) {
+			    console.log(err.name + ": " + error.message);
+			  });
+
+		    };
+		});	
+
+	$('#cameras').change(function(){
+		if(currentStream){
+			currentStream.getTracks()[0].stop();
+		}
+		console.log($(this).find(":selected").val());
+		var constraints = { deviceId: { exact: $(this).find(":selected").val() } };
+    	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+    		currentStream = stream;
+        	video.src = window.URL.createObjectURL(stream);		
+		});
+    });
+
+	// Trigger photo take
+	document.getElementById("snap").addEventListener("click", function() {
+		context.drawImage(video, 0, 0, 640, 480);
+	});
+
+	function stopCurrentStream(){
+		var constraints = { deviceId: { exact: $('#cameras').find(":selected").val() } };
+    	navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
+    		stream.getTracks()[0].stop();	
+		});
+
+	}
+	*/
+    makeblob = function (dataURL) {
+    	console.log("image size is " + dataURL.substr(22));
+        var BASE64_MARKER = ';base64,';
+        if (dataURL.indexOf(BASE64_MARKER) == -1) {
+            var parts = dataURL.split(',');
+            var contentType = parts[0].split(':')[1];
+            var raw = decodeURIComponent(parts[1]);
+            return new Blob([raw], { type: contentType });
+        }
+        var parts = dataURL.split(BASE64_MARKER);
+        var contentType = parts[0].split(':')[1];
+        var raw = window.atob(parts[1]);
+        var rawLength = raw.length;
+
+        var uInt8Array = new Uint8Array(rawLength);
+
+        for (var i = 0; i < rawLength; ++i) {
+            uInt8Array[i] = raw.charCodeAt(i);
+        }
+
+        return new Blob([uInt8Array], { type: contentType });
+    }
+
+	document.getElementById("send").addEventListener("click", function() {
+		/*var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+
+	      /*var params = {
+	         // Specify your subscription key
+	         'subscription-key': 'e77d0d528a4840468009cc520dc92a54',
+	         // Specify values for optional parameters, as needed
+	         visualFeatures: "All",
+	      };*/
+
+
+	      $.ajax({
+	         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
+            beforeSend: function (xhrObj) {
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
+            },	         
+	         type: 'POST',
+        	 data: makeblob(image.src),
+             processData: false
+	      })
+	      .done(function(data) {
+	        stopCurrentStream();
+			processData(data);
+			 alert("success");
+	      })
+	      .fail(function(error) {
+	         alert(error);
+	      });	
+
+
+		//return image;		
+	});	
+
+
+   function processData(data){
+	var phrases = "";
+	data.regions.forEach(function(region, rIndex){
+		phrases += "Region " + parseInt(rIndex+1) + " out of " + data.regions.length + ".";
+		region.lines.forEach(function(line, lIndex){
+			phrases += "Line " + parseInt(lIndex+1) + " out of " + region.lines.length + ".";
+			line.words.forEach(function(word){
+				phrases += " " + word.text;
+			})
+			phrases += ".";
+		})
+	})
+	generateUtterance(phrases)
+   }
+   
+   function generateUtterance(phrases){
+		sentences = phrases.split(".");
+		for (i = 0; i < sentences.length; i++) {
+		  sentence = sentences[i];
+		  audio = new SpeechSynthesisUtterance(sentence);
+		  window.speechSynthesis.speak(audio);
+		}
+   }
+
+</script>		
 	</head>
 	<body onload="init()">
-		<h1>HTML Media Capture - new specs</h1><p>Capture a photo using camera</p>
-		<form action="upload.php" method="post" enctype="multipart/form-data">
+		<h1>Hopefully this works on IPhone etc</h1>
+		<p>Capture a photo using camera</p>
+		<!--<form action="upload.php" method="post" enctype="multipart/form-data">-->
 			<input type="file" name="file" accept="image/*" capture=""> 
 			<input type="submit" name="upload" value="Upload">
-		</form>
+		<!--</form>-->
 	</body>
 </html>
