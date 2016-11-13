@@ -122,35 +122,51 @@
 		         // Specify values for optional parameters, as needed
 		         visualFeatures: "All",
 		      };*/
-				var file = document.querySelector('input[type=file]').files[0];
-				var reader  = new FileReader();
-				reader.readAsDataURL(file);
-				var dataUrl = reader.result;
 
-		      $.ajax({
-		         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
-	            beforeSend: function (xhrObj) {
-	                // Request headers
-	                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
-	            },	         
-		         type: 'POST',
-	        	 data: makeblob(dataUrl),
-	             processData: false
-		      })
-		      .done(function(data) {
-		        stopCurrentStream();
-				processData(data);
-				 alert("success");
-		      })
-		      .fail(function(error) {
-		         alert(error);
-		      });	
+		      var reader  = new FileReader();
+		      var file = document.querySelector('input[type=file]').files[0];
+
+	          reader.addEventListener("load", function () {
+			    uploadImage(reader.result);
+			  }, false);
+
+			  if (file) {
+			    reader.readAsDataURL(file);
+			}
+				
+				
+				//reader.readAsDataURL(file);
+				//var dataUrl = reader.result;
+
+	
 
 
 			//return image;		
 		});	
-	});   
+	}); 
+
+	function upLoadImage(base64File){
+
+      $.ajax({
+         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
+        beforeSend: function (xhrObj) {
+            // Request headers
+            xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
+        },	         
+         type: 'POST',
+    	 data: makeblob(base64File),
+         processData: false
+      })
+      .done(function(data) {
+        stopCurrentStream();
+		processData(data);
+		 alert("success");
+      })
+      .fail(function(error) {
+         alert(error);
+      });
+	}  
 
 </script>		
 	</head>
