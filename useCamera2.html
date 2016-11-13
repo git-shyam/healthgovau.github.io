@@ -86,46 +86,6 @@
         return new Blob([uInt8Array], { type: contentType });
     }
 
-	//document.getElementById("Upload").addEventListener("click", function() {
-		$('#Upload').click(function(){
-		/*var image = new Image();
-		image.src = canvas.toDataURL("image/png");
-
-	      /*var params = {
-	         // Specify your subscription key
-	         'subscription-key': 'e77d0d528a4840468009cc520dc92a54',
-	         // Specify values for optional parameters, as needed
-	         visualFeatures: "All",
-	      };*/
-			var file = document.querySelector('input[type=file]').files[0];
-			reader.readAsDataURL(file);
-			var dataUrl = reader.result;
-
-	      $.ajax({
-	         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
-            beforeSend: function (xhrObj) {
-                // Request headers
-                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
-            },	         
-	         type: 'POST',
-        	 data: makeblob(dataUrl),
-             processData: false
-	      })
-	      .done(function(data) {
-	        stopCurrentStream();
-			processData(data);
-			 alert("success");
-	      })
-	      .fail(function(error) {
-	         alert(error);
-	      });	
-
-
-		//return image;		
-	});	
-
-
    function processData(data){
 	var phrases = "";
 	data.regions.forEach(function(region, rIndex){
@@ -149,6 +109,47 @@
 		  window.speechSynthesis.speak(audio);
 		}
    }
+
+    $(document).ready(function () {
+	//document.getElementById("Upload").addEventListener("click", function() {
+		$('#Upload').click(function(){
+			/*var image = new Image();
+			image.src = canvas.toDataURL("image/png");
+
+		      /*var params = {
+		         // Specify your subscription key
+		         'subscription-key': 'e77d0d528a4840468009cc520dc92a54',
+		         // Specify values for optional parameters, as needed
+		         visualFeatures: "All",
+		      };*/
+				var file = document.querySelector('input[type=file]').files[0];
+				reader.readAsDataURL(file);
+				var dataUrl = reader.result;
+
+		      $.ajax({
+		         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
+	            beforeSend: function (xhrObj) {
+	                // Request headers
+	                xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
+	            },	         
+		         type: 'POST',
+	        	 data: makeblob(dataUrl),
+	             processData: false
+		      })
+		      .done(function(data) {
+		        stopCurrentStream();
+				processData(data);
+				 alert("success");
+		      })
+		      .fail(function(error) {
+		         alert(error);
+		      });	
+
+
+			//return image;		
+		});	
+	});   
 
 </script>		
 	</head>
