@@ -86,7 +86,7 @@
         return new Blob([uInt8Array], { type: contentType });
     }
 
-	document.getElementById("send").addEventListener("click", function() {
+	document.getElementById("Upload").addEventListener("click", function() {
 		/*var image = new Image();
 		image.src = canvas.toDataURL("image/png");
 
@@ -96,7 +96,9 @@
 	         // Specify values for optional parameters, as needed
 	         visualFeatures: "All",
 	      };*/
-
+			var file = document.querySelector('input[type=file]').files[0];
+			reader.readAsDataURL(file);
+			var dataUrl = reader.result;
 
 	      $.ajax({
 	         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
@@ -106,7 +108,7 @@
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
             },	         
 	         type: 'POST',
-        	 data: makeblob(image.src),
+        	 data: makeblob(dataUrl),
              processData: false
 	      })
 	      .done(function(data) {
@@ -153,8 +155,8 @@
 		<h1>Hopefully this works on IPhone etc</h1>
 		<p>Capture a photo using camera</p>
 		<!--<form action="upload.php" method="post" enctype="multipart/form-data">-->
-			<input type="file" name="file" accept="image/*" capture=""> 
-			<input type="submit" name="upload" value="Upload">
+			<input type="file" id="file" name="file" accept="image/*" capture=""> 
+			<input type="submit" id="Upload" name="upload" value="Upload">
 		<!--</form>-->
 	</body>
 </html>
