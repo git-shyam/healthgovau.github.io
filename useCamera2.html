@@ -100,7 +100,7 @@
       })
       .done(function(data) {
         //stopCurrentStream();
-		$('loader').hide();
+		$('#loader').hide();
 		processData(data);
       })
       .fail(function(error) {
@@ -127,7 +127,7 @@
 		sentences = phrases.split(".");
 		for (i = 0; i < sentences.length; i++) {
 		  sentence = sentences[i];
-		  $('#messages').val("<p>" + $('#messages').val() + sentence + "</p>"); 
+		  $('#messages').html("<p>" + $('#messages').html() + sentence + "</p>"); 
 		  audio = new SpeechSynthesisUtterance(sentence);
 		  window.speechSynthesis.speak(audio);
 		}
