@@ -92,7 +92,7 @@
 			      if(device.kind == "videoinput"){
 		      		//$("#cameras").append('<option value="' + device.deviceId + '">' + device.label + '</option>');
 		      		//}
-      				var constraints = { deviceId: { device.deviceId } };
+      				var constraints = { deviceId: { exact: device.deviceId } };
     				navigator.mediaDevices.getUserMedia({ video: constraints }).then(function(stream) {
     					alert("Stopping stream did: " + device.deviceId);
     					stream.getTracks()[0].stop();	
