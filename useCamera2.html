@@ -139,14 +139,23 @@
 			phrases += ".";
 		})
 	})
+	logPhrases(phrases);
 	generateUtterance(phrases)
+   }
+
+   function logPhrases(phrases){
+		sentences = phrases.split(".");
+		for (i = 0; i < sentences.length; i++) {
+		  sentence = sentences[i];
+		  $('#messages').html("<p>" + $('#messages').html() + sentence + "</p>"); 
+		}   	
    }
    
    function generateUtterance(phrases){
 		sentences = phrases.split(".");
 		for (i = 0; i < sentences.length; i++) {
 		  sentence = sentences[i];
-		  $('#messages').html("<p>" + $('#messages').html() + sentence + "</p>"); 
+		  //$('#messages').html("<p>" + $('#messages').html() + sentence + "</p>"); 
 		  audio = new SpeechSynthesisUtterance(sentence);
 		  window.speechSynthesis.speak(audio);
 		}
