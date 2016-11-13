@@ -86,6 +86,29 @@
         return new Blob([uInt8Array], { type: contentType });
     }
 
+	function uploadImage(base64File){
+
+      $.ajax({
+         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
+        beforeSend: function (xhrObj) {
+            // Request headers
+            xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
+        },	         
+         type: 'POST',
+    	 data: makeblob(base64File),
+         processData: false
+      })
+      .done(function(data) {
+        stopCurrentStream();
+		processData(data);
+		 alert("success");
+      })
+      .fail(function(error) {
+         alert(error);
+      });
+	}     
+
    function processData(data){
 	var phrases = "";
 	data.regions.forEach(function(region, rIndex){
@@ -105,6 +128,7 @@
 		sentences = phrases.split(".");
 		for (i = 0; i < sentences.length; i++) {
 		  sentence = sentences[i];
+		  console.log(sentence);
 		  audio = new SpeechSynthesisUtterance(sentence);
 		  window.speechSynthesis.speak(audio);
 		}
@@ -144,29 +168,6 @@
 			//return image;		
 		});	
 	}); 
-
-	function uploadImage(base64File){
-
-      $.ajax({
-         url: 'https://api.projectoxford.ai/vision/v1.0/ocr',
-        beforeSend: function (xhrObj) {
-            // Request headers
-            xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "e77d0d528a4840468009cc520dc92a54");
-        },	         
-         type: 'POST',
-    	 data: makeblob(base64File),
-         processData: false
-      })
-      .done(function(data) {
-        stopCurrentStream();
-		processData(data);
-		 alert("success");
-      })
-      .fail(function(error) {
-         alert(error);
-      });
-	}  
 
 </script>		
 	</head>
