@@ -127,7 +127,7 @@
 		sentences = phrases.split(".");
 		for (i = 0; i < sentences.length; i++) {
 		  sentence = sentences[i];
-		  $('#messages').val($('#messages').val() + sentence + "&#13;"); 
+		  $('#messages').val("<p>" + $('#messages').val() + sentence + "</p>"); 
 		  audio = new SpeechSynthesisUtterance(sentence);
 		  window.speechSynthesis.speak(audio);
 		}
@@ -178,7 +178,7 @@
 			<input type="file" id="file" name="file" accept="image/*" capture=""> 
 			<input type="submit" id="Upload" name="upload" value="Upload">
 			<img id="loader" src="/app/img/loader.gif" style="display: none;"/>
-			<textarea id="messages" ="messages" rows="4" cols="50"></textarea>
+			<div id="messages" ="messages"></div>
 		<!--</form>-->
 	</body>
 </html>
