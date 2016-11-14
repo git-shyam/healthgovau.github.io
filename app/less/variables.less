@@ -22,6 +22,7 @@
 @green-dark:  			 #10672a;
 @blue-light:             #8df8ff;
 @blue-dark:              #0166bd;
+@blue-dark-hover:        darken(@blue-dark, 10%);
 
 @brand-primary:         #2C3E50;
 @brand-primary:         #0166bd;
@@ -43,7 +44,7 @@
 //** Global textual link color.
 @link-color:            @blue-dark;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      @white;
+@link-hover-color:      darken(@blue-dark, 10%);
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
@@ -334,7 +335,7 @@
 //** Number of columns in the grid.
 @grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         30px;
+@grid-gutter-width:         40px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint:     @screen-sm-min;
@@ -390,7 +391,7 @@
 
 // Navbar brand label
 @navbar-default-brand-color:               @navbar-default-link-color;
-@navbar-default-brand-hover-color:         @navbar-default-link-hover-color;
+@navbar-default-brand-hover-color:         #000;
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Hack 4 Good</title>
+    <!-- Bootstrap -->
+    <link href="dist/css/helper-marketplace.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">Application title</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="examples.html">Examples</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="drop" aria-expanded="false">Andy's testing <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="drop">
+                <li><a href="OCRTest.html">OCR</a></li>
+                <li><a href="useCamera.html">Camera</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-header jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-5 col-sm-4 col-md-4">
+            <img src="./app/img/logo.png" alt="Application title logo" class="jumbo-logo">
+          </div>
+          <div class="col-xs-7 col-sm-8 col-md-8">
+              <h1>Application title</h1>
+              <div class="hidden-xs">
+                <p>Need a hand to do something?</p>
+                <p>A small task? A big issue? A helping hand is only a click away.</p>
+              </div>
+          </div>
+        </div>
+        <div class="visible-xs strapline">
+          <p>Have a small task? A big issue? A helping hand is only a click away.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-5">
+          <h2>App structure</h2>
+          <ul>
+            <li>All Bootstrap components are compiled via Grunt to <strong>/dist</strong></li>
+            <li>All app-specific components live in <strong>/app</strong></li>
+            <li>If hosted on GitHib pages, the index.html page needs to be at the root.</li>
+          </ul>
+                    <pre><code>index.html
+                        app/
+                        ├── img/
+                        ├── less/
+                        ├── js/
+                        dist/
+                        ├── less/
+                        ├── js/
+                        └── fonts/
+          </code></pre>
+        </div>
+        <div class="col-md-7">
+          <h2>Build system</h2>
+          <p>Using a build system is optional. You can simply edit the files with /app and /dist directly. However, using a build system allows LESS, JS and fonts to be compiled from source locally.</p>
+          <p>To install, follow these steps:</p>
+          <ul>
+            <li>Install <a href="https://nodejs.org/en/">node.js</a>
+            <ul><li>Verify install by opening a terminal and typing <code>node -v</code></li></ul>
+          </li>
+          <li>Clone the repo <a href="https://github.com/healthgovau/helper-marketplace/">https://github.com/healthgovau/helper-marketplace/</a> to a local folder of your choice</li>
+          <li>Open a terminal at the local folder and install grunt via `npm install -g grunt-cli`</li>
+          <li>Run <code>npm install</code></li>
+        </ul>
+        <p>To compile the app during development:</p>
+        <ul>
+          <li>Open a terminal at the root of the local folder and run:
+            <ul>
+              <li><code>grunt dist</code> to compile JS, LESS and fonts to <strong>/dist</strong>; or</li>
+              <li><code>grunt watch</code> to compile LESS only on change</li>
+            </ul>
+          </li>
+          <li>Open <strong>/index.html</strong> in the root</li>
+        </ul>
+        <p>When pushing to GitHub, the /node_modules folder is ignored as it is only required locally. All other folders are pushed.</p>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>© 2016 Department of Health</p>
+    </footer>
+  </div>
+  <!-- /container -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="dist/js/helper-marketplace.js"></script>
+  <script src="app/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="app/js/core.js"></script>
+  <!--<script src="js/core.js"></script>-->
+</body>
+</html>

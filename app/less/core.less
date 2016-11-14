@@ -1,19 +1,101 @@
 /* Import from Bootstrap */
 @import "./less/bootstrap.less";
 
+/* Mixins */
+.pad(@top: 20px;@bottom: 20px) {
+	padding-top: @top;
+	padding-bottom: @bottom;
+}
+.border-bottom() {
+	border-bottom: 1px dotted #aaa;
+}
+
 /* Move down content because we have a fixed navbar that is 60px tall */
 body {
   padding-top: 0;
   padding-bottom: 20px;
 }
 
+
 .jumbrotron .visible-xs.strapline {
 	margin-top: 20px;
+}
+.title {
+	display: block;
+	font-size: 3.5rem;
+}
+.emphasis {
+	font-weight: bold;
 }
 
 // Images =====================================================================
 img {
 	max-width: 100%;
+}
+
+// Avatar ==========
+.user-welcome {
+	margin: 37px 0 0 73px;
+	font-size: 2rem;
+	clear: right;
+}
+.avatar {
+	float: left;
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+}
+
+// Request select =============================================================
+.request-new {
+	.border-bottom();
+    display: block;
+    padding: 25px;
+	text-align: center;
+	font-size: 4rem;
+	margin-bottom: 10px;
+	&:hover,
+	&:focus {
+		background: #EEE;
+		color: #000;
+		.request-icon {
+			color: @blue-dark-hover;
+		}
+	}
+	.request-icon {
+		font-size: 12rem;
+		text-align: center;
+		width: 100%;
+	}
+	.request-label {
+		display: block;
+		color: #000; 
+	}
+}
+
+.request-others {
+	padding-left: 0; 
+	li {
+		font-size: 3rem;
+		list-style-type: none;
+		margin: 0;
+		padding-top: 20px;
+		padding-bottom: 15px;
+		.border-bottom();
+		.request-label {
+			color: #000;
+		}
+		.request-badge {
+			font-size: 2.5rem;
+		    float: right;
+		    padding: 5px 11px;
+		}
+	}
+}
+
+// Form stuff ==================
+label {
+	font-size: 2rem;
 }
 
 // Navbar =====================================================================
@@ -22,6 +104,7 @@ img {
 }
 .navbar-brand {
 	background: url("@{img-path}/logo-small-blue.png") 20px center no-repeat;
+	padding: 24px 20px;
 	padding-left: 95px;
 }
 .navbar-default .navbar-toggle {
