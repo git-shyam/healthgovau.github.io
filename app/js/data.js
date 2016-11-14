@@ -9,15 +9,13 @@ HealthGovAu.RequestData = (function () {
 		var deferred = jQuery.Deferred();
 
 		$.ajax({
-		    url: 'http://api.everlive.com/v1/kykky4omulqg6532/Request/',
+		    url: baseUrl,
 		    type: "GET",
 		    headers: {},
 		    success: function(data){
-		        console.log(JSON.stringify(data));
     			deferred.resolve(data);		        
 		    },
 		    error: function(error){
-		        console.log(JSON.stringify(error));
 				deferred.reject(JSON.stringify(error));				        
 		    }
 		});
@@ -27,20 +25,16 @@ HealthGovAu.RequestData = (function () {
 
 	pub.select = function(itemId){
 		var deferred = $.Deferred();
-		var url = "https://api.everlive.com/v1/kykky4omulqg6532/Request/" + itemId;
+		var url = baseUrl + itemId;
 
 		$.ajax({
 		    url: url,
 		    type: "GET",
-		    headers: {
-		        "Authorization" : "Bearer your-access-token"
-		    },
+		    headers: {},
 		    success: function(data){
-		        console.log(JSON.stringify(data));
     			deferred.resolve(data);
 		    },
 		    error: function(error){
-		        console.log(JSON.stringify(error));
 				deferred.reject(JSON.stringify(error));
 		    }
 		})
@@ -48,20 +42,24 @@ HealthGovAu.RequestData = (function () {
 		return deferred.promise();
 	}
 
-	pub.insert = function(JSON){
+	pub.insert = function(object){
+		/*<Title>Getting to and entering museum</Title>
+<TimeframeDateTime>2016-11-18T22:00:00.000Z</TimeframeDateTime>
+<Status>Open</Status>
+		var JSON = { "Title" : "This is a test by Andy", "TimeframeDateTime" : "2016-11-18T22:00:00.000Z", "Status" : "Open" };*/
 		var deferred = $.Deferred();
 
 		$.ajax({
 		    type: "POST",
-		    url: 'https://api.everlive.com/v1/your-app-id/type-name',
-		    headers: { "Authorization" : "Bearer your-access-token" },
+		    url: baseUrl,
+		    headers: {},
 		    contentType: "application/json",
 		    data: JSON.stringify(object),
 		    success: function(data) {
-		        alert(JSON.stringify(data));
+		        deferred.resolve(JSON.stringify(data));
 		    },
 		    error: function(error) {
-		        alert(JSON.stringify(error));
+		        deferred.reject(JSON.stringify(error));
 		    }
 		})		
 
@@ -72,5 +70,5 @@ HealthGovAu.RequestData = (function () {
 })();
 
 $(function(){
-	console.log("data loaded");
+	console.log("HealthGovAu.RequestData");
 });
