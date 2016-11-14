@@ -1,5 +1,39 @@
 var HealthGovAu = {};
 
+HealthGovAu.ChatData = (function (){
+	var pub = {};
+
+	var baseUrl = "https://api.everlive.com/v1/kykky4omulqg6532/Chat/";
+
+	pub.selectAllByRequestId = function(requestId){
+		var deferred = $.Deferred();
+
+		var filter = { "Request" : requestId };
+		var sortExp = { "ModifiedAt" : 1 };
+
+		$.ajax({
+		    url: baseUrl,
+		    type: "GET",
+		    headers: {
+		    	"X-Everlive-Filter" : JSON.stringify(filter), 
+		    	"X-Everlive-Sort" : JSON.stringify(sortExp)
+		    },
+		    success: function(data){
+		        deferred.resolve(data);
+		    },
+		    error: function(error){
+		        deferred.reject(error);
+		    }
+		});
+
+		return deferred.promise();
+	}
+
+	
+
+	return pub;
+})();
+
 HealthGovAu.NotificationsData = (function () {
 	var pub = {};
 
@@ -10,7 +44,6 @@ HealthGovAu.NotificationsData = (function () {
 
 		var filter = { "DestinationUserName" : userName, "HasBeenRead": false };
 
-		//Ajax request using jQuery
 		$.ajax({
 		    url: baseUrl,
 		    type: "GET",
