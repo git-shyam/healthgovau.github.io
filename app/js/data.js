@@ -1,5 +1,125 @@
 var HealthGovAu = {};
 
+HealthGovAu.NotificationsData = (function () {
+	var pub = {};
+
+	var baseUrl = "https://api.everlive.com/v1/kykky4omulqg6532/Notifications/";
+
+	pub.selectByUserName = function(userName){
+		var deferred = $.Deferred();
+
+		var filter = { "DestinationUserName" : userName, "HasBeenRead": false };
+
+		//Ajax request using jQuery
+		$.ajax({
+		    url: baseUrl,
+		    type: "GET",
+		    headers: {"X-Everlive-Filter" : JSON.stringify(filter) },
+		    success: function(data){
+		        deferred.resolve(data);
+		    },
+		    error: function(error){
+		        deferred.reject(error);
+		    }
+		});
+
+		return deferred.promise();		
+	}
+
+	pub.markAsRead = function(itemId){
+		var deferred = $.Deferred();
+
+		var filter = {"Id": itemId};
+		var object = {"HasBeenRead": true};
+
+		$.ajax({
+		    type: "PUT",
+		    url: baseUrl,
+		    headers: {
+		        "X-Everlive-Filter":JSON.stringify(filter)
+		    },
+		    contentType: "application/json",
+		    data: JSON.stringify(object),
+		    success: function (data) {
+		        deferred.resolve(data);
+		    },
+		    error: function (error) {
+		        deferred.reject(error);
+		    }
+		})
+		return deferred.promise();	
+	}
+
+	pub.insert = function(object){
+		var deferred = $.Deferred();
+
+		$.ajax({
+		    type: "POST",
+		    url: baseUrl,
+		    headers: {},
+		    contentType: "application/json",
+		    data: JSON.stringify(object),
+		    success: function(data) {
+		        deferred.resolve(data);
+		    },
+		    error: function(error) {
+		        deferred.reject(error);
+		    }
+		})		
+
+		return deferred.promise();		
+	}
+
+	return pub;
+})();
+
+HealthGovAu.CustomUsersData = (function () {
+	var pub = {};
+
+	var baseUrl = "http://api.everlive.com/v1/kykky4omulqg6532/CustomUsers/";
+
+	pub.selectAll = function(){
+		var deferred = jQuery.Deferred();
+
+		$.ajax({
+		    url: baseUrl,
+		    type: "GET",
+		    headers: {},
+		    success: function(data){
+    			deferred.resolve(data);		        
+		    },
+		    error: function(error){
+				deferred.reject(error);				        
+		    }
+		});
+
+		return deferred.promise();			
+	};	
+
+	pub.selectByUserName = function(userName){
+		var deferred = $.Deferred();
+
+		var filter = { "UserName" : userName };
+
+		//Ajax request using jQuery
+		$.ajax({
+		    url: baseUrl,
+		    type: "GET",
+		    headers: {"X-Everlive-Filter" : JSON.stringify(filter) },
+		    success: function(data){
+		        deferred.resolve(data);
+		    },
+		    error: function(error){
+		        deferred.reject(error);
+		    }
+		});
+
+		return deferred.promise();
+	}	
+
+	return pub;
+})();
+
 HealthGovAu.RequestData = (function () {
 	var pub = {};
 
