@@ -3045,26 +3045,26 @@ fieldset[disabled] a.btn {
 }
 .btn-default {
   color: #fff;
-  background-color: #95a5a6;
-  border-color: #95a5a6;
+  background-color: #555;
+  border-color: #555;
 }
 .btn-default:focus,
 .btn-default.focus {
   color: #fff;
-  background-color: #798d8f;
-  border-color: #566566;
+  background-color: #3b3b3b;
+  border-color: #151515;
 }
 .btn-default:hover {
   color: #fff;
-  background-color: #798d8f;
-  border-color: #74898a;
+  background-color: #3b3b3b;
+  border-color: #363636;
 }
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
   color: #fff;
-  background-color: #798d8f;
-  border-color: #74898a;
+  background-color: #3b3b3b;
+  border-color: #363636;
 }
 .btn-default:active:hover,
 .btn-default.active:hover,
@@ -3076,8 +3076,8 @@ fieldset[disabled] a.btn {
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
   color: #fff;
-  background-color: #687b7c;
-  border-color: #566566;
+  background-color: #2a2a2a;
+  border-color: #151515;
 }
 .btn-default:active,
 .btn-default.active,
@@ -3093,11 +3093,11 @@ fieldset[disabled] .btn-default:focus,
 .btn-default.disabled.focus,
 .btn-default[disabled].focus,
 fieldset[disabled] .btn-default.focus {
-  background-color: #95a5a6;
-  border-color: #95a5a6;
+  background-color: #555;
+  border-color: #555;
 }
 .btn-default .badge {
-  color: #95a5a6;
+  color: #555;
   background-color: #fff;
 }
 .btn-primary {
@@ -4686,7 +4686,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #ccc;
 }
 .breadcrumb > .active {
-  color: #95a5a6;
+  color: #555;
 }
 .pagination {
   display: inline-block;
@@ -4848,11 +4848,11 @@ a.label:focus {
   top: -1px;
 }
 .label-default {
-  background-color: #95a5a6;
+  background-color: #555;
 }
 .label-default[href]:hover,
 .label-default[href]:focus {
-  background-color: #798d8f;
+  background-color: #3b3b3b;
 }
 .label-primary {
   background-color: #0166bd;
@@ -6806,6 +6806,20 @@ img {
 label {
   font-size: 2rem;
 }
+.datepick {
+  margin-top: 20px;
+}
+.user-progress {
+  display: block;
+  background: #ddd;
+}
+.user-progress .breadcrumb {
+  padding-left: 0;
+  padding-right: 0;
+  background: none;
+  margin-bottom: 0;
+  color: #000;
+}
 .navbar {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
 }
@@ -6821,6 +6835,9 @@ label {
   background-color: #000;
   width: 23px;
   height: 4px;
+}
+.when {
+  margin-bottom: 20px;
 }
 .meta-age {
   display: block;

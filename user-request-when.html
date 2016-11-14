@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link href="dist/css/helper-marketplace.css" rel="stylesheet">
     <link href="app/fa/css/font-awesome.css" rel="stylesheet">
+    <link type="text/css" href="app/js/datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -49,32 +50,56 @@
     </div>
     
     <div class="user-progress">
-    <div class="container">
+     <div class="container">
       <ol class="breadcrumb">
         <li>Your progress: </li>
-        <li><a href="index.html">Choose</a></li>        
-        <li>What</li>
+        <li><a href="index.html">Choose</a></li>
+        <li><a href="user-request-new.html">What</a></li>          
+        <li>When</li>
       </ol>
     </div>
     </div>
 
     <div class="content-header">
       <div class="container">
-        <h1 class="title"><span class="emphasis">What</span> do you want to do?</h1>
+        <h1 class="title"><span class="emphasis">When</span> do you want to do it?</h1>
         <p>Lorem ipsum dolor sit amet</p>
       </div>
     </div>
     <div class="container">
     
     <div class="well">  
-    <form id="request-new" name="request-new">
+   <!--  <form id="request-new-when" name="request-new-when">
       <div class="form-group">
-        <label for="describe">Describe your request</label>
-        <textarea rows="4" class="form-control input-lg" id="describe" placeholder="e.g. I want to buy cinema tickets"></textarea>
-      </div>
-      <a href="user-request-when.html" class="btn btn-primary btn-block btn-lg">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+        <fieldset>
+          <legend>Tell us when</legend>
+          <div class="radio">
+            <input id="now" type="radio" name="when" value="now">
+            <label for="now">Now</label>
+          </div>
+          <div class="radio">
+            <input id="later" type="radio" name="when" value="later">
+            <label for="later">Later</label>
+          </div>
+        </fieldset>
+        <a href="#" class="btn btn-primary btn-block btn-lg">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
       </div>  
-    </form>
+    </form> -->
+
+      <div class="when">
+        <a href="#" class="btn btn-default btn-block btn-lg">Now</a>
+        <a href="#" class="btn btn-default btn-block btn-lg">Later</a>
+
+  
+        <div class="datepick">
+        <div class="form-group">
+          <label for="request-date">Select the date and time</label>
+          <input type="text" class="form-control" id="request-date" name="date" value="2012/01/01 10:00">
+        </div>
+        </div>
+
+      </div>
+      <a href="#" class="btn btn-primary btn-block btn-lg">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 
       <hr>
       <footer>
@@ -89,6 +114,6 @@
     <script src="dist/js/helper-marketplace.js"></script>
     <script src="app/js/ie10-viewport-bug-workaround.js"></script>
     <script src="app/js/core.js"></script>
-    <!--<script src="js/core.js"></script>-->
+    <script type="text/javascript" src="app/js/datetimepicker/jquery.simple-dtpicker.js"></script>
   </body>
 </html>

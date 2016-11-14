@@ -8,19 +8,9 @@ $.fn.extend({
 });
 
 $(function(){
-
-	// Test of client-side AJAX request to Telerik
-	$.ajax({
-	    url: 'https://api.everlive.com/v1/zn1chd0owd2709tp/Activities',
-	    type: "GET",
-	    headers: {},
-	    success: function(data){
-	        console.log(JSON.stringify(data));
-	    },
-	    error: function(error){
-	        alert(JSON.stringify(error));
-	    }
-	})
-
-
+	$('#request-date').dtpicker().appendDtpicker({
+		"inline": true,
+		"dateFormat": "DD/MM/YY h:m",
+		"futureOnly": true
+	});
 });
