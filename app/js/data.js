@@ -16,7 +16,7 @@ HealthGovAu.RequestData = (function () {
     			deferred.resolve(data);		        
 		    },
 		    error: function(error){
-				deferred.reject(JSON.stringify(error));				        
+				deferred.reject(error);				        
 		    }
 		});
 
@@ -35,7 +35,7 @@ HealthGovAu.RequestData = (function () {
     			deferred.resolve(data);
 		    },
 		    error: function(error){
-				deferred.reject(JSON.stringify(error));
+				deferred.reject(error);
 		    }
 		})
 
@@ -43,10 +43,7 @@ HealthGovAu.RequestData = (function () {
 	}
 
 	pub.insert = function(object){
-		/*<Title>Getting to and entering museum</Title>
-<TimeframeDateTime>2016-11-18T22:00:00.000Z</TimeframeDateTime>
-<Status>Open</Status>
-		var JSON = { "Title" : "This is a test by Andy", "TimeframeDateTime" : "2016-11-18T22:00:00.000Z", "Status" : "Open" };*/
+		/*var object = { "Title" : "This is a test by Andy", "TimeframeDateTime" : "2016-11-18T22:00:00.000Z", "Status" : "Open", "Location":{"longitude":151.20914600000003,"latitude":-33.860423} };*/
 		var deferred = $.Deferred();
 
 		$.ajax({
@@ -56,12 +53,34 @@ HealthGovAu.RequestData = (function () {
 		    contentType: "application/json",
 		    data: JSON.stringify(object),
 		    success: function(data) {
-		        deferred.resolve(JSON.stringify(data));
+		        deferred.resolve(data);
 		    },
 		    error: function(error) {
-		        deferred.reject(JSON.stringify(error));
+		        deferred.reject(error);
 		    }
 		})		
+
+		return deferred.promise();
+	}
+
+	pub.update = function(object){
+		//var object = "{"Title":"This is a test by Andy","TimeframeDateTime":"2016-11-18T22:00:00.000Z","Status":"Open","Location":{"longitude":151.20914600000003,"latitude":-33.860423},"CreatedAt":"2016-11-14T01:14:12.972Z","ModifiedAt":"2016-11-14T01:14:12.972Z","CreatedBy":"00000000-0000-0000-0000-000000000000","ModifiedBy":"00000000-0000-0000-0000-000000000000","Owner":"00000000-0000-0000-0000-000000000000","Id":"a74d1ac0-aa07-11e6-af66-abf94594410c","Meta":{"Permissions":{"CanRead":true,"CanUpdate":true,"CanDelete":true}}}"
+		var deferred = $.Deferred();
+
+		$.ajax({
+		    type: "PUT",
+		    url: baseUrl + object.Id,
+		    headers: {},
+		    contentType: "application/json",
+		    data: JSON.stringify(object),
+		    success: function(data){
+		        deferred.resolve(data);
+		    },
+		    error: function(error){
+		        deferred.reject(error);
+		    }
+		})		
+
 
 		return deferred.promise();
 	}
